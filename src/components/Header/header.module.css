@@ -1,0 +1,14 @@
+.titleBackground {
+  margin: 30px auto 45px;
+  text-align: center;
+  width: 600px;
+  background-image: url("https://m-dekor.by/catalog/2364/fotooboi2.jpg");
+  background-size: cover;
+}
+.titleBackground .title {
+  font-family: "MyFont", serif;
+  font-size: 70px;
+  color: white;
+}
+
+/*# sourceMappingURL=header.module.css.map */

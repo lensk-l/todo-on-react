@@ -1,0 +1,15 @@
+.addForm {
+  display: block;
+  margin: 0 auto;
+}
+.addForm div {
+  display: flex;
+  justify-content: center;
+}
+.addForm div input {
+  background: rgba(166, 172, 174, 0.1);
+  width: 500px;
+  margin-right: 10px;
+}
+
+/*# sourceMappingURL=addTodo.module.css.map */

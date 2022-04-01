@@ -1,0 +1,16 @@
+.addForm {
+
+  display: block;
+  margin: 0 auto;
+
+  div{
+    display: flex;
+    justify-content: center;
+    input {
+      background: rgba(166, 172, 174, 0.1);
+      width: 500px;
+      margin-right: 10px;
+    }
+  }
+
+}
