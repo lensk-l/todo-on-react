@@ -1,26 +1,64 @@
+
 .containerTask {
+  background-color: rgba(142, 164, 192, 0.08);
+
   .buttGroup {
     display: flex;
     margin-top: 30px;
     justify-content: center;
+
     button {
       max-width: fit-content;
     }
   }
-  button{
+
+  button {
     height: 38px;
     margin-right: 10px;
   }
+
   .taskItem {
     width: fit-content;
     margin: 30px auto;
+
     .taskBlock {
-      display: grid;
-      grid-template-columns: 5fr 1fr 1fr;
-      button{
-        width: 68px;
+      justify-content: center;
+      @media (min-width: 576px) {
+        display: flex;
+        max-width: 455px;
       }
+      @media (min-width: 768px) {
+        display: grid;
+        grid-template-columns: 5fr 1fr 1fr 1fr;
+      }
+
+      button {
+        @media (min-width: 300px) {
+          display: grid;
+          width: 30px;
+        }
+
+        @media (min-width: 576px) {
+          display: grid;
+          width: 45px;
+        }
+        @media (min-width: 768px) {
+          display: grid;
+          width: 68px;
+        }
+      }
+
       p {
+        @media (min-width: 576px) {
+          width: 400px;
+        }
+        @media (min-width: 768px) {
+          width: 350px;
+        }
+        @media (min-width: 991px) {
+          width: 500px;
+        }
+
         background: white;
         width: 500px;
         height: 38px;
@@ -34,20 +72,24 @@
         line-height: 1.5;
       }
     }
-    .taskBlock2{
+
+    .taskBlock2 {
       display: grid;
-      grid-template-columns: 6fr  1fr;
+      grid-template-columns: 5fr  1fr 1fr;
       grid-gap: 10px;
     }
   }
+
   .taskItem:hover {
-    p{
+    p {
       background: rgba(185, 221, 239, 0.62);
     }
   }
+
   .closed {
     color: darkgreen;
     text-decoration: line-through;
   }
 
 }
+

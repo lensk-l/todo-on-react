@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import s from './todoList.module.css'
 import {Button, ButtonGroup, Container, FormControl, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faPencil, faSquare, faSquareCheck, faTrashCan} from '@fortawesome/free-solid-svg-icons'
+import {faFloppyDisk, faPencil, faSquare, faSquareCheck, faTrashCan} from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -69,23 +69,31 @@ function TodoList({todo, setTodosWithSave}) {
             {
                 filtered.map(item => (
                     <Row className={s.taskItem} key={item.id}>
-                        <div key={item.id} onDoubleClick={() => editTodo(item.id, item.title)}>
+                        <div key={item.id}>
                             {
                                 editId === item.id
                                     ? <div className={s.taskBlock2}>
                                         <FormControl className={s.input} value={value}
                                                      onChange={(e) => setValue(e.target.value)}
                                         />
-                                        <Button className={s.update} variant="outline-success"
-                                                onClick={() => updateTask(item.id)}>
-                                            <FontAwesomeIcon icon={faPencil}/>
+                                        <Button className={s.update}
+                                                onClick={()=>updateTask(item.id)}
+                                                variant="outline-success">
+                                           <FontAwesomeIcon icon={faFloppyDisk}/>
                                         </Button>
+                                        <Button variant="outline-danger"
+                                                onClick={() => deleteItem(item.id)}>
+                                            <FontAwesomeIcon icon={faTrashCan}/></Button>
+
                                     </div>
                                     : <div className={s.taskBlock}>
                                         <p className={item.status ? s.closed : ""}>{item.title}</p>
                                         <Button variant="outline-danger"
-                                                onClick={() => deleteItem(item.id)}><FontAwesomeIcon
-                                            icon={faTrashCan}/></Button>
+                                                onClick={() => deleteItem(item.id)}>
+                                            <FontAwesomeIcon icon={faTrashCan}/></Button>
+                                        <Button variant="outline-warning"
+                                                onClick={() => editTodo(item.id, item.title)}>
+                                            <FontAwesomeIcon icon={faPencil}/></Button>
                                         <Button variant="outline-success" onClick={() => changeStatus(item.id)}>
                                             {
                                                 item.status === true

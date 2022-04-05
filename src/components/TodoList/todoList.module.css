@@ -1,3 +1,6 @@
+.containerTask {
+  background-color: rgba(142, 164, 192, 0.08);
+}
 .containerTask .buttGroup {
   display: flex;
   margin-top: 30px;
@@ -15,11 +18,37 @@
   margin: 30px auto;
 }
 .containerTask .taskItem .taskBlock {
-  display: grid;
-  grid-template-columns: 5fr 1fr 1fr;
+  justify-content: center;
 }
-.containerTask .taskItem .taskBlock button {
-  width: 68px;
+@media (min-width: 576px) {
+  .containerTask .taskItem .taskBlock {
+    display: flex;
+    max-width: 455px;
+  }
+}
+@media (min-width: 768px) {
+  .containerTask .taskItem .taskBlock {
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 300px) {
+  .containerTask .taskItem .taskBlock button {
+    display: grid;
+    width: 30px;
+  }
+}
+@media (min-width: 576px) {
+  .containerTask .taskItem .taskBlock button {
+    display: grid;
+    width: 45px;
+  }
+}
+@media (min-width: 768px) {
+  .containerTask .taskItem .taskBlock button {
+    display: grid;
+    width: 68px;
+  }
 }
 .containerTask .taskItem .taskBlock p {
   background: white;
@@ -34,9 +63,24 @@
   font-weight: 400;
   line-height: 1.5;
 }
+@media (min-width: 576px) {
+  .containerTask .taskItem .taskBlock p {
+    width: 400px;
+  }
+}
+@media (min-width: 768px) {
+  .containerTask .taskItem .taskBlock p {
+    width: 350px;
+  }
+}
+@media (min-width: 991px) {
+  .containerTask .taskItem .taskBlock p {
+    width: 500px;
+  }
+}
 .containerTask .taskItem .taskBlock2 {
   display: grid;
-  grid-template-columns: 6fr 1fr;
+  grid-template-columns: 5fr 1fr 1fr;
   grid-gap: 10px;
 }
 .containerTask .taskItem:hover p {
