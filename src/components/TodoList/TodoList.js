@@ -5,7 +5,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPencil, faSquare, faSquareCheck, faTrashCan} from '@fortawesome/free-solid-svg-icons'
 
 
-function TodoList({todo, setTodo}) {
+
+function TodoList({todo, setTodosWithSave}) {
 
     const [editId, setEdit] = useState(null);
     const [value, setValue] = useState('');
@@ -17,7 +18,7 @@ function TodoList({todo, setTodo}) {
 
     function deleteItem(id) {
         let newTodo = [...todo].filter(item => item.id !== id)
-        setTodo(newTodo)
+        setTodosWithSave(newTodo)
     }
 
     function changeStatus(id) {
@@ -27,7 +28,7 @@ function TodoList({todo, setTodo}) {
             }
             return item
         })
-        setTodo(newTodo)
+        setTodosWithSave(newTodo)
     }
 
     function editTodo(id, text) {
@@ -42,7 +43,7 @@ function TodoList({todo, setTodo}) {
             }
             return task
         })
-        setTodo(newTodo)
+        setTodosWithSave(newTodo)
         setEdit(null)
     }
     function todoFilter(status) {
@@ -68,7 +69,7 @@ function TodoList({todo, setTodo}) {
             {
                 filtered.map(item => (
                     <Row className={s.taskItem} key={item.id}>
-                        <div onDoubleClick={() => editTodo(item.id, item.title)}>
+                        <div key={item.id} onDoubleClick={() => editTodo(item.id, item.title)}>
                             {
                                 editId === item.id
                                     ? <div className={s.taskBlock2}>

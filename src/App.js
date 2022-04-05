@@ -8,29 +8,19 @@ import {Container} from "react-bootstrap";
 
 
 function App() {
-    const [todo, setTodo] = useState([
-        {
-            id: 1,
-            title: 'first Todo',
-            status: true,
-        },
-        {
-            id: 2,
-            title: 'second Todo',
-            status: true,
-        },
-        {
-            id: 3,
-            title: 'third Todo',
-            status: false,
-        }
-    ])
+    const [todo, setTodo] = useState(localStorage.getItem('todo') ? JSON.parse(localStorage.getItem('todo')) : []);
+
+    const setTodosWithSave = (newTodo) => {
+        setTodo(newTodo);
+        localStorage.setItem('todo', JSON.stringify(newTodo))
+    }
+
     return (
 
         <Container>
             <Header/>
-            <AddTodo todo={todo} setTodo={setTodo}/>
-            <TodoList todo={todo} setTodo={setTodo}/>
+            <AddTodo todo={todo} setTodosWithSave={setTodosWithSave}/>
+            <TodoList todo={todo} setTodosWithSave={setTodosWithSave}/>
         </Container>
     );
 }

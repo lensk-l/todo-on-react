@@ -3,11 +3,12 @@ import { v4 as uuidv4 } from 'uuid';
 import {Button, Col, FormControl, Row} from "react-bootstrap";
 import s from './addTodo.module.css'
 
-function AddTodo({todo, setTodo}) {
+
+function AddTodo({todo, setTodosWithSave}) {
     const [value, setValue] = useState('')
     function addTask(){
         if(value) {
-            setTodo(
+            setTodosWithSave(
                 [...todo, {
                     id: uuidv4(),
                     title: value,
@@ -17,6 +18,8 @@ function AddTodo({todo, setTodo}) {
             setValue('')
         }
     }
+
+
 
     return(
             <Row className={s.addForm}>
