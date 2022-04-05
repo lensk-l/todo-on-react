@@ -13,6 +13,10 @@
   height: 38px;
   margin-right: 10px;
 }
+.containerTask button svg {
+  display: block;
+  margin: 3px auto;
+}
 .containerTask .taskItem {
   width: fit-content;
   margin: 30px auto;
